@@ -66,14 +66,13 @@ def run():
         user_height = input('Введите ваш рост (м): ')
     user_height = float(user_height)
 
-    # Формула ИМТ: вес разделить на (рост в квадрате)
+    # Подсчет ИМТ
     bmi = round(user_weight / (user_height ** 2), 1)
 
-    # Подсчет воды: вес * 30 мл
+    # Подсчет требуемого объема потребления воды
     water_needed = user_weight * WATER_PER_KG / MILLILITERS_IN_LITER
 
-    # Вывод красивого результата
-    print(f'Отчет для пользователя: {user_name} ({user_age} г.)'
+    print(f'\nОтчет для пользователя: {user_name}. Полных лет - {user_age}.'
           f'\nТвой Индекс Массы Тела: {bmi}'
           f'\nРекомендуемая норма воды: {water_needed:.1f} л. в день')
 
