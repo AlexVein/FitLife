@@ -13,15 +13,12 @@ def check_user_input_empty(user_input: str) -> bool:
     return user_input == ''
 
 
-def check_input_number(user_input: str) -> bool:
+def check_input_float_number(user_input: str) -> bool:
     """
     Проверка ввода на число
     :param user_input:
     :return: True or False
     """
-    if user_input.isnumeric():
-        return True
-
     try:
         float(user_input)
         return True
@@ -46,15 +43,14 @@ def run():
         user_name = input('Введите ваше имя: ').strip()
 
     user_age = input('Введите ваш возраст: ')
-    while (not check_input_number(user_age)
-           or not check_number_is_positive(user_age)):
-        print('Возраст должен быть указан в виде положительного числового '
-              'значения. Повторите попытку.')
+    while not (user_age.isdigit() and int(user_age) > 0):
+        print('Возраст должен быть указан в виде целого положительного числа. '
+              'Повторите попытку.')
         user_age = input('Введите ваш возраст: ')
     user_age = int(user_age)
 
     user_weight = input('Введите ваш вес (кг): ')
-    while (not check_input_number(user_weight)
+    while (not check_input_float_number(user_weight)
            or not check_number_is_positive(user_weight)):
         print('Вес должен быть указан в виде положительного числового '
               'значения (Например, 60.5). Повторите попытку.')
@@ -62,7 +58,7 @@ def run():
     user_weight = float(user_weight)
 
     user_height = input('Введите ваш рост (м): ')
-    while (not check_input_number(user_height)
+    while (not check_input_float_number(user_height)
            or not check_number_is_positive(user_height)):
         print('Рост должен быть указан в виде положительного числового '
               'значения (Например, 1.8). Повторите попытку.')
