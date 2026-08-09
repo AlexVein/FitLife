@@ -5,6 +5,21 @@ WATER_PER_KG = 30
 MILLILITERS_IN_LITER = 1000
 
 
+# Проверка ввода на пустую строку
+def check_user_input_empty(user_empty):
+    pass
+
+
+# Проверка ввода на число
+def check_input_number(user_input):
+    pass
+
+
+# Проверка, является ли число положительным
+def check_number_is_positive(number):
+    pass
+
+
 def run():
     user_name = input('Введите ваше имя: ')
     user_age = int(input('Введите ваш возраст: '))
