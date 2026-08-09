@@ -24,7 +24,7 @@ def check_input_number(user_input):
 
 # Проверка, является ли число положительным
 def check_number_is_positive(number):
-    pass
+    return float(number) > 0
 
 
 def run():
@@ -37,9 +37,10 @@ def run():
     while check_user_input_empty(user_age):
         print('Возраст не может быть пустым. Повторите попытку.')
         user_age = input('Введите ваш возраст: ')
-    while not check_input_number(user_age):
-        print('Возраст должен быть указан в виде числового значения. '
-              'Повторите попытку.')
+    while (not check_input_number(user_age)
+           or not check_number_is_positive(user_age)):
+        print('Возраст должен быть указан в виде положительного числового '
+              'значения. Повторите попытку.')
         user_age = input('Введите ваш возраст: ')
     user_age = int(user_age)
 
@@ -47,9 +48,10 @@ def run():
     while check_user_input_empty(user_weight):
         print('Вес не может быть пустым. Повторите попытку.')
         user_weight = input('Введите ваш вес (кг): ')
-    while not check_input_number(user_weight):
-        print('Вес должен быть указан в виде числового значения '
-              '(Например, 60.5). Повторите попытку.')
+    while (not check_input_number(user_weight)
+           or not check_number_is_positive(user_weight)):
+        print('Вес должен быть указан в виде положительного числового '
+              'значения (Например, 60.5). Повторите попытку.')
         user_weight = input('Введите ваш вес (кг): ')
     user_weight = float(user_weight)
 
@@ -57,9 +59,10 @@ def run():
     while check_user_input_empty(user_height):
         print('Рост не может быть пустым. Повторите попытку.')
         user_height = input('Введите ваш рост (м): ')
-    while not check_input_number(user_height):
-        print('Рост должен быть указан в виде числового значения '
-              '(Например, 1.8). Повторите попытку.')
+    while (not check_input_number(user_height)
+           or not check_number_is_positive(user_height)):
+        print('Рост должен быть указан в виде положительного числового '
+              'значения (Например, 1.8). Повторите попытку.')
         user_height = input('Введите ваш рост (м): ')
     user_height = float(user_height)
 
