@@ -10,7 +10,7 @@ def check_user_input_empty(user_input: str) -> bool:
     :param user_input:
     :return: True or False
     """
-    return user_input.strip() == ''
+    return user_input == ''
 
 
 def check_input_number(user_input: str) -> bool:
@@ -40,10 +40,10 @@ def check_number_is_positive(number: str) -> bool:
 
 def run():
     """Выполнение расчета ИМТ и необходимого объема потребления воды"""
-    user_name = input('Введите ваше имя: ')
+    user_name = input('Введите ваше имя: ').strip()
     while check_user_input_empty(user_name):
         print('Имя не может быть пустым. Повторите попытку.')
-        user_name = input('Введите ваше имя: ')
+        user_name = input('Введите ваше имя: ').strip()
 
     user_age = input('Введите ваш возраст: ')
     while check_user_input_empty(user_age):
