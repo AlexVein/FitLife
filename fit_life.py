@@ -1,6 +1,9 @@
 # Проект FitLife - MVP версия 1.0
 
 
+WATER_PER_KG = 30
+MILLILITERS_IN_LITER = 1000
+
 user_name = input('Введите ваше имя: ')
 user_age = int(input('Введите ваш возраст: '))
 
@@ -11,7 +14,7 @@ user_height = float(input('Введите ваш рост (м): '))
 bmi = round(user_weight / (user_height ** 2), 1)
 
 # Подсчет воды: вес * 30 мл
-water_needed = user_weight * 30 / 1000
+water_needed = user_weight * WATER_PER_KG / MILLILITERS_IN_LITER
 
 # Вывод красивого результата
 print(f'Отчет для пользователя: {user_name} ({user_age} г.)'
