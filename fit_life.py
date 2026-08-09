@@ -46,9 +46,6 @@ def run():
         user_name = input('Введите ваше имя: ').strip()
 
     user_age = input('Введите ваш возраст: ')
-    while check_user_input_empty(user_age):
-        print('Возраст не может быть пустым. Повторите попытку.')
-        user_age = input('Введите ваш возраст: ')
     while (not check_input_number(user_age)
            or not check_number_is_positive(user_age)):
         print('Возраст должен быть указан в виде положительного числового '
@@ -57,9 +54,6 @@ def run():
     user_age = int(user_age)
 
     user_weight = input('Введите ваш вес (кг): ')
-    while check_user_input_empty(user_weight):
-        print('Вес не может быть пустым. Повторите попытку.')
-        user_weight = input('Введите ваш вес (кг): ')
     while (not check_input_number(user_weight)
            or not check_number_is_positive(user_weight)):
         print('Вес должен быть указан в виде положительного числового '
@@ -68,9 +62,6 @@ def run():
     user_weight = float(user_weight)
 
     user_height = input('Введите ваш рост (м): ')
-    while check_user_input_empty(user_height):
-        print('Рост не может быть пустым. Повторите попытку.')
-        user_height = input('Введите ваш рост (м): ')
     while (not check_input_number(user_height)
            or not check_number_is_positive(user_height)):
         print('Рост должен быть указан в виде положительного числового '
