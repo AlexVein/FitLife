@@ -4,21 +4,26 @@
 WATER_PER_KG = 30
 MILLILITERS_IN_LITER = 1000
 
-user_name = input('Введите ваше имя: ')
-user_age = int(input('Введите ваш возраст: '))
 
-user_weight = float(input('Введите ваш вес (кг): '))
-user_height = float(input('Введите ваш рост (м): '))
+def run():
+    user_name = input('Введите ваше имя: ')
+    user_age = int(input('Введите ваш возраст: '))
 
-# Формула ИМТ: вес разделить на (рост в квадрате)
-bmi = round(user_weight / (user_height ** 2), 1)
+    user_weight = float(input('Введите ваш вес (кг): '))
+    user_height = float(input('Введите ваш рост (м): '))
 
-# Подсчет воды: вес * 30 мл
-water_needed = user_weight * WATER_PER_KG / MILLILITERS_IN_LITER
+    # Формула ИМТ: вес разделить на (рост в квадрате)
+    bmi = round(user_weight / (user_height ** 2), 1)
 
-# Вывод красивого результата
-print(f'Отчет для пользователя: {user_name} ({user_age} г.)'
-      f'\nТвой Индекс Массы Тела: {bmi}'
-      f'\nРекомендуемая норма воды: {water_needed:.1f} л. в день')
+    # Подсчет воды: вес * 30 мл
+    water_needed = user_weight * WATER_PER_KG / MILLILITERS_IN_LITER
 
-print('Расчет окончен. Будьте здоровы!')
+    # Вывод красивого результата
+    print(f'Отчет для пользователя: {user_name} ({user_age} г.)'
+          f'\nТвой Индекс Массы Тела: {bmi}'
+          f'\nРекомендуемая норма воды: {water_needed:.1f} л. в день')
+
+    print('Расчет окончен. Будьте здоровы!')
+
+
+run()
