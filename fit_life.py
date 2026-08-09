@@ -26,15 +26,6 @@ def check_input_float_number(user_input: str) -> bool:
         return False
 
 
-def check_number_is_positive(number: str) -> bool:
-    """
-    Проверка, является ли число положительным
-    :param number:
-    :return: True or False
-    """
-    return float(number) > 0
-
-
 def run():
     """Выполнение расчета ИМТ и необходимого объема потребления воды"""
     user_name = input('Введите ваше имя: ').strip()
@@ -43,23 +34,21 @@ def run():
         user_name = input('Введите ваше имя: ').strip()
 
     user_age = input('Введите ваш возраст: ')
-    while not (user_age.isdigit() and int(user_age) > 0):
+    while not user_age.isdigit() and int(user_age) > 0:
         print('Возраст должен быть указан в виде целого положительного числа. '
               'Повторите попытку.')
         user_age = input('Введите ваш возраст: ')
     user_age = int(user_age)
 
     user_weight = input('Введите ваш вес (кг): ')
-    while (not check_input_float_number(user_weight)
-           or not check_number_is_positive(user_weight)):
+    while not check_input_float_number(user_weight) and float(user_weight) > 0:
         print('Вес должен быть указан в виде положительного числового '
               'значения (Например, 60.5). Повторите попытку.')
         user_weight = input('Введите ваш вес (кг): ')
     user_weight = float(user_weight)
 
     user_height = input('Введите ваш рост (м): ')
-    while (not check_input_float_number(user_height)
-           or not check_number_is_positive(user_height)):
+    while not check_input_float_number(user_height) and float(user_height) > 0:
         print('Рост должен быть указан в виде положительного числового '
               'значения (Например, 1.8). Повторите попытку.')
         user_height = input('Введите ваш рост (м): ')
