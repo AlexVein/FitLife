@@ -1,17 +1,24 @@
 # Проект FitLife - MVP версия 1.0
 
-
 WATER_PER_KG = 30
 MILLILITERS_IN_LITER = 1000
 
 
-# Проверка ввода на пустую строку
-def check_user_input_empty(user_input):
+def check_user_input_empty(user_input: str) -> bool:
+    """
+    Проверка ввода на пустую строку
+    :param user_input:
+    :return: True or False
+    """
     return user_input.strip() == ''
 
 
-# Проверка ввода на число
-def check_input_number(user_input):
+def check_input_number(user_input: str) -> bool:
+    """
+    Проверка ввода на число
+    :param user_input:
+    :return: True or False
+    """
     if user_input.isnumeric():
         return True
 
@@ -22,12 +29,17 @@ def check_input_number(user_input):
         return False
 
 
-# Проверка, является ли число положительным
-def check_number_is_positive(number):
+def check_number_is_positive(number: str) -> bool:
+    """
+    Проверка, является ли число положительным
+    :param number:
+    :return: True or False
+    """
     return float(number) > 0
 
 
 def run():
+    """Выполнение расчета ИМТ и необходимого объема потребления воды"""
     user_name = input('Введите ваше имя: ')
     while check_user_input_empty(user_name):
         print('Имя не может быть пустым. Повторите попытку.')
