@@ -12,7 +12,14 @@ def check_user_input_empty(user_input):
 
 # Проверка ввода на число
 def check_input_number(user_input):
-    pass
+    if user_input.isnumeric():
+        return True
+
+    try:
+        float(user_input)
+        return True
+    except ValueError:
+        return False
 
 
 # Проверка, является ли число положительным
@@ -30,16 +37,31 @@ def run():
     while check_user_input_empty(user_age):
         print('Возраст не может быть пустым. Повторите попытку.')
         user_age = input('Введите ваш возраст: ')
+    while not check_input_number(user_age):
+        print('Возраст должен быть указан в виде числового значения. '
+              'Повторите попытку.')
+        user_age = input('Введите ваш возраст: ')
+    user_age = int(user_age)
 
     user_weight = input('Введите ваш вес (кг): ')
     while check_user_input_empty(user_weight):
         print('Вес не может быть пустым. Повторите попытку.')
         user_weight = input('Введите ваш вес (кг): ')
+    while not check_input_number(user_weight):
+        print('Вес должен быть указан в виде числового значения '
+              '(Например, 60.5). Повторите попытку.')
+        user_weight = input('Введите ваш вес (кг): ')
+    user_weight = float(user_weight)
 
     user_height = input('Введите ваш рост (м): ')
     while check_user_input_empty(user_height):
         print('Рост не может быть пустым. Повторите попытку.')
         user_height = input('Введите ваш рост (м): ')
+    while not check_input_number(user_height):
+        print('Рост должен быть указан в виде числового значения '
+              '(Например, 1.8). Повторите попытку.')
+        user_height = input('Введите ваш рост (м): ')
+    user_height = float(user_height)
 
     # Формула ИМТ: вес разделить на (рост в квадрате)
     bmi = round(user_weight / (user_height ** 2), 1)
