@@ -6,8 +6,8 @@ MILLILITERS_IN_LITER = 1000
 
 
 # Проверка ввода на пустую строку
-def check_user_input_empty(user_empty):
-    pass
+def check_user_input_empty(user_input):
+    return user_input.strip() == ''
 
 
 # Проверка ввода на число
@@ -22,10 +22,24 @@ def check_number_is_positive(number):
 
 def run():
     user_name = input('Введите ваше имя: ')
-    user_age = int(input('Введите ваш возраст: '))
+    while check_user_input_empty(user_name):
+        print('Имя не может быть пустым. Повторите попытку.')
+        user_name = input('Введите ваше имя: ')
 
-    user_weight = float(input('Введите ваш вес (кг): '))
-    user_height = float(input('Введите ваш рост (м): '))
+    user_age = input('Введите ваш возраст: ')
+    while check_user_input_empty(user_age):
+        print('Возраст не может быть пустым. Повторите попытку.')
+        user_age = input('Введите ваш возраст: ')
+
+    user_weight = input('Введите ваш вес (кг): ')
+    while check_user_input_empty(user_weight):
+        print('Вес не может быть пустым. Повторите попытку.')
+        user_weight = input('Введите ваш вес (кг): ')
+
+    user_height = input('Введите ваш рост (м): ')
+    while check_user_input_empty(user_height):
+        print('Рост не может быть пустым. Повторите попытку.')
+        user_height = input('Введите ваш рост (м): ')
 
     # Формула ИМТ: вес разделить на (рост в квадрате)
     bmi = round(user_weight / (user_height ** 2), 1)
