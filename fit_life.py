@@ -23,7 +23,7 @@ def main():
                   'Повторите попытку.')
 
     while True:
-        user_weight = input('Введите ваш вес (кг): ')
+        user_weight = input('Введите ваш вес (кг): ').replace(',', '.')
         try:
             user_weight = float(user_weight)
             if user_weight > 0:
@@ -34,7 +34,7 @@ def main():
                   'Повторите попытку.')
 
     while True:
-        user_height = input('Введите ваш рост (м): ')
+        user_height = input('Введите ваш рост (м): ').replace(',', '.')
         try:
             user_height = float(user_height)
             if user_height > 0:
