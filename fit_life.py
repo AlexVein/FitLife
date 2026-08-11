@@ -4,56 +4,52 @@ WATER_PER_KG = 30
 MILLILITERS_IN_LITER = 1000
 
 
+def input_non_empty_string(prompt: str) -> str:
+    """Запрашивает непустую строку у пользователя."""
+    value = input(prompt).strip()
+    while value == '':
+        print('Значение не может быть пустым. Повторите попытку.')
+        value = input(prompt).strip()
+    return value
+
+
+def input_positive_int(prompt: str) -> int:
+    """Запрашивает положительное целое число."""
+    while True:
+        try:
+            value = int(input(prompt))
+            if value > 0:
+                return value
+            print('Число должно быть больше 0.')
+        except ValueError:
+            print('Нужно ввести целое число. Повторите попытку.')
+
+
+def input_positive_float(prompt: str) -> float:
+    """Запрашивает положительное число с плавающей точкой."""
+    while True:
+        user_input = input(prompt).replace(',', '.')
+        try:
+            value = float(user_input)
+            if value > 0:
+                return value
+            print('Число должно быть больше 0. Повторите попытку.')
+        except ValueError:
+            print('Нужно ввести число (например, 60.5). Повторите попытку.')
+
+
 def get_user_data() -> tuple[str, int, float, float]:
     """
     Запрашивает у пользователя имя, возраст, вес и рост,
     рассчитывает индекс массы тела (ИМТ) и рекомендуемую норму воды.
-    :return: кортеж (user_name, user_age, user_bmi, water_needed),
-             где user_name — str, user_age — int, user_bmi — float,
-             water_needed — float (литры в день).
+    :return: кортеж (user_name, user_age, user_bmi, water_needed)
     """
-    user_name = input('Введите ваше имя: ').strip()
-    while user_name == '':
-        print('Имя не может быть пустым. Повторите попытку.')
-        user_name = input('Введите ваше имя: ').strip()
+    user_name = input_non_empty_string('Введите ваше имя: ')
+    user_age = input_positive_int('Введите ваш возраст: ')
+    user_weight = input_positive_float('Введите ваш вес (кг): ')
+    user_height = input_positive_float('Введите ваш рост (м): ')
 
-    while True:
-        user_age = input('Введите ваш возраст: ')
-        try:
-            user_age = int(user_age)
-            if user_age > 0:
-                break
-            print('Возраст должен быть больше 0.')
-        except ValueError:
-            print('Возраст должен быть целым числом. '
-                  'Повторите попытку.')
-
-    while True:
-        user_weight = input('Введите ваш вес (кг): ').replace(',', '.')
-        try:
-            user_weight = float(user_weight)
-            if user_weight > 0:
-                break
-            print('Вес должен быть больше 0. Повторите попытку.')
-        except ValueError:
-            print('Вес должен быть числом (например, 60.5). '
-                  'Повторите попытку.')
-
-    while True:
-        user_height = input('Введите ваш рост (м): ').replace(',', '.')
-        try:
-            user_height = float(user_height)
-            if user_height > 0:
-                break
-            print('Рост должен быть больше 0. Повторите попытку.')
-        except ValueError:
-            print('Рост должен быть числом (например, 1.8). '
-                  'Повторите попытку.')
-
-    # Подсчет ИМТ
     user_bmi = round(user_weight / (user_height ** 2), 1)
-
-    # Подсчет требуемого объема потребления воды
     water_needed = user_weight * WATER_PER_KG / MILLILITERS_IN_LITER
 
     return user_name, user_age, user_bmi, water_needed
