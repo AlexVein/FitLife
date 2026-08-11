@@ -4,15 +4,6 @@ WATER_PER_KG = 30
 MILLILITERS_IN_LITER = 1000
 
 
-def check_user_input_empty(user_input: str) -> bool:
-    """
-    Проверка ввода на пустую строку
-    :param user_input:
-    :return: True or False
-    """
-    return user_input == ''
-
-
 def check_input_float_number(user_input: str) -> bool:
     """
     Проверка ввода на число
@@ -29,7 +20,7 @@ def check_input_float_number(user_input: str) -> bool:
 def run():
     """Выполнение расчета ИМТ и необходимого объема потребления воды"""
     user_name = input('Введите ваше имя: ').strip()
-    while check_user_input_empty(user_name):
+    while user_name == '':
         print('Имя не может быть пустым. Повторите попытку.')
         user_name = input('Введите ваше имя: ').strip()
 
