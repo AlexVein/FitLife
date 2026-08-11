@@ -4,7 +4,7 @@ WATER_PER_KG = 30
 MILLILITERS_IN_LITER = 1000
 
 
-def main():
+def get_user_data():
     """Выполнение расчета ИМТ и необходимого объема потребления воды."""
     user_name = input('Введите ваше имя: ').strip()
     while user_name == '':
@@ -45,15 +45,18 @@ def main():
                   'Повторите попытку.')
 
     # Подсчет ИМТ
-    bmi = round(user_weight / (user_height ** 2), 1)
+    user_bmi = round(user_weight / (user_height ** 2), 1)
 
     # Подсчет требуемого объема потребления воды
     water_needed = user_weight * WATER_PER_KG / MILLILITERS_IN_LITER
 
-    print(f'\nОтчет для пользователя: {user_name}. Полных лет - {user_age}.'
+    return user_name, user_age, user_bmi, water_needed
+
+
+if __name__ == '__main__':
+    name, age, bmi, water = get_user_data()
+
+    print(f'\nОтчет для пользователя: {name}. Полных лет - {age}.'
           f'\nТвой Индекс Массы Тела: {bmi}'
-          f'\nРекомендуемая норма воды: {water_needed:.1f} л. в день'
+          f'\nРекомендуемая норма воды: {water:.1f} л. в день'
           f'\n\nРасчет окончен. Будьте здоровы!')
-
-
-main()
