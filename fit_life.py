@@ -11,37 +11,38 @@ def main():
         print('Имя не может быть пустым. Повторите попытку.')
         user_name = input('Введите ваше имя: ').strip()
 
-    user_age = input('Введите ваш возраст: ')
-    while not (user_age.isdigit()
-               and int(user_age) > 0):
-        print('Возраст должен быть указан в виде целого положительного числа. '
-              'Повторите попытку.')
-        user_age = input('Введите ваш возраст: ')
-    user_age = int(user_age)
-
-    user_weight = input('Введите ваш вес (кг): ')
     while True:
+        user_age = input('Введите ваш возраст: ')
+        try:
+            user_age = int(user_age)
+            if user_age > 0:
+                break
+            print('Возраст должен быть больше 0.')
+        except ValueError:
+            print('Возраст должен быть целым числом. '
+                  'Повторите попытку.')
+
+    while True:
+        user_weight = input('Введите ваш вес (кг): ')
         try:
             user_weight = float(user_weight)
             if user_weight > 0:
                 break
             print('Вес должен быть больше 0. Повторите попытку.')
         except ValueError:
-            print('Вес должен быть указан в виде положительного числового '
-                  'значения (Например, 60.5). Повторите попытку.')
-        user_weight = input('Введите ваш вес (кг): ')
+            print('Вес должен быть целым числом (например, 60.5). '
+                  'Повторите попытку.')
 
-    user_height = input('Введите ваш рост (м): ')
     while True:
+        user_height = input('Введите ваш рост (м): ')
         try:
             user_height = float(user_height)
             if user_height > 0:
                 break
             print('Рост должен быть больше 0. Повторите попытку.')
         except ValueError:
-            print('Рост должен быть указан в виде положительного числового '
-                  'значения (Например, 1.8). Повторите попытку.')
-        user_height = input('Введите ваш рост (м): ')
+            print('Рост должен быть целым числом (например, 1.8). '
+                  'Повторите попытку.')
 
     # Подсчет ИМТ
     bmi = round(user_weight / (user_height ** 2), 1)
