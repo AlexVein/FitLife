@@ -6,7 +6,7 @@ MILLILITERS_IN_LITER = 1000
 
 def check_input_float_number(user_input: str) -> bool:
     """
-    Проверка ввода на число
+    Проверка ввода на число.
     :param user_input:
     :return: True or False
     """
@@ -18,7 +18,7 @@ def check_input_float_number(user_input: str) -> bool:
 
 
 def run():
-    """Выполнение расчета ИМТ и необходимого объема потребления воды"""
+    """Выполнение расчета ИМТ и необходимого объема потребления воды."""
     user_name = input('Введите ваше имя: ').strip()
     while user_name == '':
         print('Имя не может быть пустым. Повторите попытку.')
