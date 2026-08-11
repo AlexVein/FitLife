@@ -4,8 +4,14 @@ WATER_PER_KG = 30
 MILLILITERS_IN_LITER = 1000
 
 
-def get_user_data():
-    """Выполнение расчета ИМТ и необходимого объема потребления воды."""
+def get_user_data() -> tuple[str, int, float, float]:
+    """
+    Запрашивает у пользователя имя, возраст, вес и рост,
+    рассчитывает индекс массы тела (ИМТ) и рекомендуемую норму воды.
+    :return: кортеж (user_name, user_age, user_bmi, water_needed),
+             где user_name — str, user_age — int, user_bmi — float,
+             water_needed — float (литры в день).
+    """
     user_name = input('Введите ваше имя: ').strip()
     while user_name == '':
         print('Имя не может быть пустым. Повторите попытку.')
