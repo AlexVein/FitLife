@@ -4,19 +4,6 @@ WATER_PER_KG = 30
 MILLILITERS_IN_LITER = 1000
 
 
-def check_input_float_number(user_input: str) -> bool:
-    """
-    Проверка ввода на число.
-    :param user_input:
-    :return: True or False
-    """
-    try:
-        float(user_input)
-        return True
-    except ValueError:
-        return False
-
-
 def main():
     """Выполнение расчета ИМТ и необходимого объема потребления воды."""
     user_name = input('Введите ваше имя: ').strip()
@@ -33,20 +20,28 @@ def main():
     user_age = int(user_age)
 
     user_weight = input('Введите ваш вес (кг): ')
-    while not (check_input_float_number(user_weight)
-               and float(user_weight) > 0):
-        print('Вес должен быть указан в виде положительного числового '
-              'значения (Например, 60.5). Повторите попытку.')
+    while True:
+        try:
+            user_weight = float(user_weight)
+            if user_weight > 0:
+                break
+            print('Вес должен быть больше 0. Повторите попытку.')
+        except ValueError:
+            print('Вес должен быть указан в виде положительного числового '
+                  'значения (Например, 60.5). Повторите попытку.')
         user_weight = input('Введите ваш вес (кг): ')
-    user_weight = float(user_weight)
 
     user_height = input('Введите ваш рост (м): ')
-    while not (check_input_float_number(user_height)
-               and float(user_height) > 0):
-        print('Рост должен быть указан в виде положительного числового '
-              'значения (Например, 1.8). Повторите попытку.')
+    while True:
+        try:
+            user_height = float(user_height)
+            if user_height > 0:
+                break
+            print('Рост должен быть больше 0. Повторите попытку.')
+        except ValueError:
+            print('Рост должен быть указан в виде положительного числового '
+                  'значения (Например, 1.8). Повторите попытку.')
         user_height = input('Введите ваш рост (м): ')
-    user_height = float(user_height)
 
     # Подсчет ИМТ
     bmi = round(user_weight / (user_height ** 2), 1)
