@@ -17,7 +17,7 @@ def check_input_float_number(user_input: str) -> bool:
         return False
 
 
-def run():
+def main():
     """Выполнение расчета ИМТ и необходимого объема потребления воды."""
     user_name = input('Введите ваше имя: ').strip()
     while user_name == '':
@@ -61,4 +61,4 @@ def run():
     print('Расчет окончен. Будьте здоровы!')
 
 
-run()
+main()
