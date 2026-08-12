@@ -40,8 +40,8 @@ def input_positive_float(prompt: str) -> float:
 
 def get_user_data() -> tuple[str, int, float, float]:
     """
-    Запрашивает у пользователя имя, возраст, вес и рост,
-    рассчитывает индекс массы тела (ИМТ) и рекомендуемую норму воды.
+    Запрашивает у пользователя имя, возраст, вес и рост.
+    Рассчитывает индекс массы тела (ИМТ) и рекомендуемую норму воды.
     :return: кортеж (user_name, user_age, user_bmi, water_needed)
     """
     user_name = input_non_empty_string('Введите ваше имя: ')
